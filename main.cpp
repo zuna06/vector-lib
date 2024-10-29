@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector.h>
+#include <chrono>
 
 int main() {
 
@@ -10,12 +11,23 @@ int main() {
     // addition testing
     // one dimensional
 
-    Vector<int> myVectorOne = {1, 2, 3, 4};
-    Vector<int> myVectorTwo = {1, 2, 3, 4};
+    Vector<int> myVectorOne = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+    Vector<int> myVectorTwo = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
 
     Vector<int> addVector = myVectorOne + myVectorTwo;
+    
+    //Debug::printTime<int>(Debug::displayVector(addVector), addVector);
+
+    auto start = std::chrono::high_resolution_clock::now();
     Vector<int> multiplyVector = myVectorOne * myVectorTwo;
-    addVector.displayVector();
+    auto end = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double> duration = end - start;
+
+    std::cout << "Function execution time: " << duration.count() << " seconds" << "\n";
+
+
+    Debug::displayVector(addVector);
 
     // two dimensional testing
 

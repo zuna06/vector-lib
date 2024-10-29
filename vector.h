@@ -2,8 +2,10 @@
 #pragma once
 
 #include <initializer_list>
+#include <chrono>
+#include <functional>
 
-template <typename T>
+template <typename T> 
 class Vector {
     private:
         T* elements; // some array -> type is double
@@ -84,12 +86,13 @@ class Vector {
             Vector<T> result(this->size);
 
             /* this is so bad, so so bad holy shit */
-            for(int i = 0; i < 4; i ++) {
-                for(int j = 0; j < 4; i) {
-                    Vector<T> thisRow = {this->elements[0 + (i * 4)], this->elements[1 + (i * 4)], this->elements[2 + (i * 4)], this->elements[3 + (i * 3)]};
-                    Vector<T> someRow = {someVector[0 + j], someVector[4 + j], someVector[8 + j], someVector[12 + j]};
-
-                    result[i * j + j] = thisRow[i] * someRow[0] + thisRow[i] * someRow[1] + thisRow[i] * someRow[2] + thisRow[i] * someRow[3]; 
+            /* never mind its okay now :) */
+            int index = 0;
+            for(int i = 0; i < 4; i++) {
+                T thisRow[] = {this->elements[0 + (i * 4)], this->elements[1 + (i * 4)], this->elements[2 + (i * 4)], this->elements[3 + (i * 4)]};
+                for(int j = 0; j < 4; j++) {
+                    T someRow[] = {someVector[0 + j], someVector[4 + j], someVector[8 + j], someVector[12 + j]};
+                    result[index++] = thisRow[0] * someRow[0] + thisRow[1] * someRow[1] + thisRow[2] * someRow[2] + thisRow[3] * someRow[3]; 
                 }
             }
 
@@ -102,31 +105,47 @@ class Vector {
         int getSize() {
             return size;
         }
+};
 
-        void displayVector() {
+namespace Debug {
+
+    template <typename T>
+    void displayVector(Vector<T>& vector) {
+            for(int i = 0; i < vector.getSize(); i++) {
+                std::cout << vector[i] << "\n";
+            }
+        }
+
+    template <typename T>
+    void printTime(std::function<Vector<T>(Vector<T>&)>, Vector<T>& vector) {
+    
+        auto start = std::chrono::high_resolution_clock::now();
+        func(vector);
+        auto end = std::chrono::high_resolution_clock::now();
+
+        std::chrono::duration<double> duration = end - start;
+
+        std::cout << "Function execution time: " << duration.count() << " seconds" << "\n";
+    }
+
+        
+    /*
+    void displayVector() {
+        if (T == Vector::Vector<int>) {
+            for(int i = 0; i < size; i++){
+                for(int j = 0; j < elements[i].getSize(); j++) {
+                    std::cout << elements[i][j] << "\n";
+                }
+            }
+        } else {
             for(int i = 0; i < size; i++) {
                 std::cout << elements[i] << "\n";
             }
         }
+    }
+    */
 
 
-        
-        /*
-        void displayVector() {
-            if (T == Vector::Vector<int>) {
-                for(int i = 0; i < size; i++){
-                    for(int j = 0; j < elements[i].getSize(); j++) {
-                        std::cout << elements[i][j] << "\n";
-                    }
-                }
-            } else {
-                for(int i = 0; i < size; i++) {
-                    std::cout << elements[i] << "\n";
-                }
-            }
-        }
-        */
 
 };
-
 
