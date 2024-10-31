@@ -1,3 +1,10 @@
+# my shit
+main
+*.exe
+*.o
+*.elf
+.vscode/
+
 # Prerequisites
 *.d
 
