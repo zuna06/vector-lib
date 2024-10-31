@@ -1,0 +1,17 @@
+4x4 Matrix Math Benchmarks (1D 16-element arrays)
+
+1. Matrix Addition/Subtraction (element-wise):
+   ≈ 2.0 x 10^-8 seconds
+
+2. Scalar Multiplication (entire matrix by scalar):
+   ≈ 1.5 x 10^-8 seconds
+
+3. Matrix-Matrix Multiplication (4x4 * 4x4):
+   ≈ 2.0 x 10^-7 seconds
+   fastest = 7.98e-07 seconds
+
+4. Matrix-Vector Multiplication (4x4 matrix * 4-element vector):
+   ≈ 5.0 x 10^-8 seconds
+
+5. Matrix Transposition:
+   ≈ 1.5 x 10^-8 seconds

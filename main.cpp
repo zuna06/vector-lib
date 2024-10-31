@@ -25,9 +25,19 @@ int main() {
     std::chrono::duration<double> duration = end - start;
 
     std::cout << "Function execution time: " << duration.count() << " seconds" << "\n";
+    
+    //std::cout << << "\n";
 
+    /*
+    
+    result[i * j + j] = (*this)[i] * someVector[0]
+                                        + (*this)[i * j + 1] * someVector[1 * j]
+                                        + (*this)[i * j + 2] * someVector[2 * j]
+                                        + (*this)[i * j + 3] * someVector[3 * j + j];
 
-    Debug::displayVector(addVector);
+    */
+
+    //Debug::displayVector(multiplyVector);
 
     // two dimensional testing
 

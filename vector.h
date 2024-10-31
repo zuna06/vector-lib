@@ -87,6 +87,10 @@ class Vector {
 
             /* this is so bad, so so bad holy shit */
             /* never mind its okay now :) */
+            /* never mind this shit is ass */
+            /* the fact that this even crossed my mind is ridiculous */
+            
+            /*
             int index = 0;
             for(int i = 0; i < 4; i++) {
                 T thisRow[] = {this->elements[0 + (i * 4)], this->elements[1 + (i * 4)], this->elements[2 + (i * 4)], this->elements[3 + (i * 4)]};
@@ -95,9 +99,19 @@ class Vector {
                     result[index++] = thisRow[0] * someRow[0] + thisRow[1] * someRow[1] + thisRow[2] * someRow[2] + thisRow[3] * someRow[3]; 
                 }
             }
+            */
 
+
+            int index = 0;
+            for(int i = 0; i < 4; i++) {
+                for(int j = 0; j < 4; j++) {
+                    result[index++] = (this->elements)[0 + (i * 4)] * someVector[0 + j]
+                                    + (this->elements)[1 + (i * 4)] * someVector[4 + j]
+                                    + (this->elements)[2 + (i * 4)] * someVector[8 + j]
+                                    + (this->elements)[3 + (i * 4)] * someVector[12 + j];
+                }
+            }
             return result;
-
         }
 
         /* display | debug functions */
