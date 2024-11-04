@@ -7,6 +7,8 @@ int main() {
     // TES NOTES
     // index=row×number of columns+column -> for single dimensional vector
 
+    // you aint nothin but a broke fien fien fien
+    // broke mf fien
 
     // addition testing
     // one dimensional
@@ -25,6 +27,10 @@ int main() {
     std::chrono::duration<double> duration = end - start;
 
     std::cout << "Function execution time: " << duration.count() << " seconds" << "\n";
+
+    // im going to rip my nuts off
+    // 5 ms too long AHHHH
+    
     
     //std::cout << << "\n";
 

@@ -11,7 +11,6 @@ class Vector {
         T* elements; // some array -> type is double
         int size; // number of elements in that array -> will be int
         int capacity; // total capacity of array
-        int dimension;
     public:
         /* default constructor */ 
         Vector() : elements(nullptr), size(0), capacity(0) {}
@@ -83,12 +82,18 @@ class Vector {
         // multiplication
         Vector operator*(Vector<T>& someVector) {
             
+
+            // i should just make my arithmetic also 2d
+            // but i feel like the calc is too slow in the first place
+            // after i speed that up ill make it 2d and test
+
             Vector<T> result(this->size);
 
             /* this is so bad, so so bad holy shit */
             /* never mind its okay now :) */
             /* never mind this shit is ass */
             /* the fact that this even crossed my mind is ridiculous */
+
             
             /*
             int index = 0;
@@ -113,14 +118,9 @@ class Vector {
             }
             return result;
         }
-
-        /* display | debug functions */
-
-        int getSize() {
-            return size;
-        }
 };
 
+/* stupid ass debug namespace */
 namespace Debug {
 
     template <typename T>
@@ -130,6 +130,8 @@ namespace Debug {
             }
         }
 
+    /* im just being stupid */
+    /* ill fix this later when i feel like it */
     template <typename T>
     void printTime(std::function<Vector<T>(Vector<T>&)>, Vector<T>& vector) {
     
